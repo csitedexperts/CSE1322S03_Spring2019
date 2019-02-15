@@ -10,6 +10,7 @@ public class VehicleMain {
 	}
 
 	public static void main(String[] args) {
+		
 		// TODO Auto-generated method stub
 		//Vehicle v10 = new Vehicle();
 		Vehicle v12 = new Vehicle(); // Are all Vehicles Vehicle?
