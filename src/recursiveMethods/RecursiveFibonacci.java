@@ -3,7 +3,7 @@ package recursiveMethods;
 
 public class RecursiveFibonacci {
 	public static void main(String args[]) {
-		int n= 10; 
+		int n= 16; 
 		System.out.println("First " + n + " Fibonacci Numbers are:\n" );
 		for (int i =0; i< n; i++)
 			System.out.print(fibo(i) + "   ");
@@ -11,7 +11,7 @@ public class RecursiveFibonacci {
 	}  
 
 	static int fibo(int n) {
-		if (n<=1)
+		if (n<2)
 			return 1;
 		else{
 			return fibo(n-2) + fibo(n-1);  // recursion makes here

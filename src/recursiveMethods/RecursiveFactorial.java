@@ -3,7 +3,7 @@ package recursiveMethods;
 
 public class RecursiveFactorial {
 	public static void main(String args[]) {
-		int n=5; 
+		int n=500; 
 		System.out.print("Factorial of "+ n +" is : "+ fact(n));
 	}  
 
