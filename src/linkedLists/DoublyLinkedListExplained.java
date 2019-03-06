@@ -24,7 +24,7 @@ import java.util.NoSuchElementException;
 
 	@Override
 	public String toString(){   // Required
-		return name;
+		return "" + id + " " + name;
 	}
 
 }
@@ -48,7 +48,7 @@ class DoublyLinkedList {
 	}
 
 	public boolean isEmpty() { 
-		return size == 0; 
+		return (size == 0); 
 	}
 
 	/**

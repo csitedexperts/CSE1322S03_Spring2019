@@ -1,25 +1,34 @@
 package linkedLists;
 
+// Singly Linked List
 
 class Node {
 	int id;
 	String name;
+	float weight;
 	Node next; 
 	// Reference to next link made in the LinkList
 	// Holds the reference to the Link that was created before it
 	// Set to null until it is connected to other links
-	public Node(int id, String name){
+	
+	public Node(int id, String name, float w){
 		this.id = id;
 		this.name = name;
+		this.weight = w;
+		
 	}
-
 
 	public void displayANode(){
-		System.out.println("id: " + id + " name:" + name );
+		System.out.println("id: " + id + " name:" + name + " weight : " + weight);
 	}
 
+	@Override
 	public String toString(){   // Required
-		return name;
+//		return "" + id ;
+//		return name;
+//		return  name + "  " + id + " "  + weight;
+		return "" + id + "  " + name + "  " + weight;
+		
 	}
 
 	/*	public Node getNext() { return next; 	}  */
@@ -37,59 +46,20 @@ class LinkedList{
 		head = null;  // null initialization
 		// Here to show the head always starts as null
 	}
-
+	
+// LinkedList ln = new LinkedList();
+	
 	// Returns true if LinkList is empty
 
+	
 	public boolean isEmpty(){
+/*		if (head == null) return true;
+		else return false;
+*/
 		return(head == null);
 
 	}
 
-	public void prepend(int id, String name){
-		if (head == null) {
-			head = new Node(id, name);
-			return; 
-		}
-		Node newHead = new Node(id, name);
-		// Connects the head field to the newHead 
-		newHead.next = head;
-		//		newHead.setNext(head);  // If you use setter
-		head = newHead;
-	}
-
-
-	public void append(int id, String name){
-		if (head == null) {
-			head = new Node(id, name);
-			return; 
-		}
-		Node currentNode = head;
-		while(currentNode.next != null) {
-			currentNode = currentNode.next;
-		}
-		currentNode.next = new Node(id, name);
-	}
-
-
-	public Node removeFirst(){
-
-		Node deleteLink = head;
-
-		if(!isEmpty()){
-
-			// Removes the Link from the List
-
-			head = head.next;
-
-		} else {
-
-			System.out.println("Empty LinkedList");
-
-		}
-
-		return deleteLink;
-
-	}
 
 	public void displayAllNodes(){
 
@@ -113,32 +83,41 @@ class LinkedList{
 
 	}
 
-	public Node findById(String id){
+	public void append(int id, String name, float weight){
+		if (head == null) {
+			head = new Node(id, name, weight);
+			return; 
+		}
+		Node currentNode = head;
+		while(currentNode.next != null) {
+			currentNode = currentNode.next;
+		}
+		currentNode.next = new Node(id, name, weight);
+	}
 
-		Node theNode = head;
+	public void prepend(int id, String name, float weight){
+		if (head == null) { 
+			head = new Node(id, name, weight);
+			return; 
+		}
+		Node newHead = new Node(id, name, weight);
+		// Connects the head field to the newHead 
+		newHead.next = head;
+		//		newHead.setNext(head);  // If you use setter
+		head = newHead;
+	}
+
+	
+
+	public Node removeFirst(){
+
+		Node deleteLink = head;
 
 		if(!isEmpty()){
 
-			while(theNode.name != id){
+			// Removes the Link from the List
 
-				// Checks if at the end of the LinkedList
-
-				if(theNode.next == null){
-
-					// Got to the end of the Links in LinkedList
-					// without finding a match
-
-					return null;
-
-				} else {
-
-					// Found a matching Link in the LinkedList
-
-					theNode = theNode.next;
-
-				}
-
-			}
+			head = head.next;
 
 		} else {
 
@@ -146,50 +125,12 @@ class LinkedList{
 
 		}
 
-		return theNode;
+		return deleteLink;
 
 	}
 
-
-	public Node findByName(String name){
-
-		Node theLink = head;
-
-		if(!isEmpty()){
-
-			while(theLink.name != name){
-
-				// Checks if at the end of the LinkedList
-
-				if(theLink.next == null){
-
-					// Got to the end of the Links in LinkedList
-					// without finding a match
-
-					return null;
-
-				} else {
-
-					// Found a matching Link in the LinkedList
-
-					theLink = theLink.next;
-
-				}
-
-			}
-
-		} else {
-
-			System.out.println("Empty LinkedList");
-
-		}
-
-		return theLink;
-
-	}
 
 	public Node removeById(int id){
-
 
 		Node currentLink = head;
 		Node previousLink = head;
@@ -302,6 +243,82 @@ class LinkedList{
 
 	}
 
+
+	public Node findById(String id){
+
+		Node theNode = head;
+
+		if(!isEmpty()){
+
+			while(theNode.name != id){
+
+				// Checks if at the end of the LinkedList
+
+				if(theNode.next == null){
+
+					// Got to the end of the Links in LinkedList
+					// without finding a match
+
+					return null;
+
+				} else {
+
+					// Found a matching Link in the LinkedList
+
+					theNode = theNode.next;
+
+				}
+
+			}
+
+		} else {
+
+			System.out.println("Empty LinkedList");
+
+		}
+
+		return theNode;
+
+	}
+
+
+	public Node findByName(String name){
+
+		Node theLink = head;
+
+		if(!isEmpty()){
+
+			while(theLink.name != name){
+
+				// Checks if at the end of the LinkedList
+
+				if(theLink.next == null){
+
+					// Got to the end of the Links in LinkedList
+					// without finding a match
+
+					return null;
+
+				} else {
+
+					// Found a matching Link in the LinkedList
+
+					theLink = theLink.next;
+
+				}
+
+			}
+
+		} else {
+
+			System.out.println("Empty LinkedList");
+
+		}
+
+		return theLink;
+
+	}
+
 }
 
 
@@ -310,7 +327,7 @@ public class SinglyLinkedListExplained {
 
 	public static void main(String[] args) {
 
-
+/*
 		Node n1 = new Node(1, "n1");
 		Node n2 = new Node(2, "n2");
 		Node n3 = new Node(3, "n3");
@@ -324,7 +341,7 @@ public class SinglyLinkedListExplained {
 		n4.displayANode();
 		n5.displayANode();
 		n6.displayANode();
-
+		
 		System.out.println("n1.next :" + n1.next) ;
 		System.out.println("n2.next :" + n2.next) ;
 		System.out.println("n3.next :" + n3.next) ;
@@ -359,16 +376,22 @@ public class SinglyLinkedListExplained {
 		n6.displayANode();
 
 		System.out.println("++++++++++++++++++++++++++");
-
+*/
 		
-
-
 		System.out.println("===========================");
 
 
 		LinkedList theLinkedList = new LinkedList();
+		
+		theLinkedList.append(101, "Michael", 125.5f);
+		theLinkedList.prepend(102, "Sasah", 120.0f);
+		theLinkedList.append(103, "Braxton", 150);
+		theLinkedList.append(104, "Lee", 160);
+		theLinkedList.prepend(105, "Mokter", 165.5f);
+//  105 > 102 > 101 > 103  > 104 
+		theLinkedList.displayAllNodes();
 
-		// Insert Link and add a reference to the name Link added just prior
+/*		// Insert Link and add a reference to the name Link added just prior
 		// to the field next
 		theLinkedList.prepend(0, "O");
 
@@ -394,7 +417,7 @@ public class SinglyLinkedListExplained {
 		theLinkedList.removeById(2);
 		System.out.println("\nB Removed\n");
 
-		theLinkedList.displayAllNodes();
+		theLinkedList.displayAllNodes();*/
 
 	}
 
