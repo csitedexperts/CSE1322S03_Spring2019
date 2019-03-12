@@ -35,10 +35,12 @@ class Stack {
 	}
 
 	public void peek() {
-		if(isEmpty())
+		if(isEmpty()) {
 			System.out.println("There is nothing to peek");
+			return;
+		}
 		else {
-//			System.out.println("The top node's id is : " + top.id);
+			//			System.out.println("The top node's id is : " + top.id);
 			System.out.println("The top node is : " + top.id + ":" + top.name);
 		}
 	}
@@ -64,9 +66,9 @@ class Stack {
 			int id = top.id;
 			String name = top.name;
 			System.out.println("Poped the node with Id: " + id + " and Name:" + name );
-		
+
 			top = top.next;
-			
+
 		}
 	}
 
@@ -109,6 +111,6 @@ public class StackImplementationExplained {
 
 		mys.displayAllNodes();
 
-		}
+	}
 
 }
