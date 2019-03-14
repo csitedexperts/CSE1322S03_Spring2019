@@ -5,29 +5,27 @@ package linkedLists;
 class Node {
 	int id;
 	String name;
-	float weight;
 	Node next; 
 	// Reference to next link made in the LinkList
 	// Holds the reference to the Link that was created before it
 	// Set to null until it is connected to other links
 	
-	public Node(int id, String name, float w){
+	public Node(int id, String name){
 		this.id = id;
 		this.name = name;
-		this.weight = w;
 		
 	}
 
 	public void displayANode(){
-		System.out.println("id: " + id + " name:" + name + " weight : " + weight);
+		System.out.println("id: " + id + " name:" + name );
 	}
 
 	@Override
 	public String toString(){   // Required
 //		return "" + id ;
 //		return name;
-//		return  name + "  " + id + " "  + weight;
-		return "" + id + "  " + name + "  " + weight;
+//		return  name + "  " + id ;
+		return "" + id + "  " + name;
 		
 	}
 
@@ -83,24 +81,24 @@ class LinkedList{
 
 	}
 
-	public void append(int id, String name, float weight){
+	public void append(int id, String name){
 		if (head == null) {
-			head = new Node(id, name, weight);
+			head = new Node(id, name);
 			return; 
 		}
 		Node currentNode = head;
 		while(currentNode.next != null) {
 			currentNode = currentNode.next;
 		}
-		currentNode.next = new Node(id, name, weight);
+		currentNode.next = new Node(id, name);
 	}
 
-	public void prepend(int id, String name, float weight){
+	public void prepend(int id, String name){
 		if (head == null) { 
-			head = new Node(id, name, weight);
+			head = new Node(id, name);
 			return; 
 		}
-		Node newHead = new Node(id, name, weight);
+		Node newHead = new Node(id, name);
 		// Connects the head field to the newHead 
 		newHead.next = head;
 		//		newHead.setNext(head);  // If you use setter
@@ -383,11 +381,11 @@ public class SinglyLinkedListExplained {
 
 		LinkedList theLinkedList = new LinkedList();
 		
-		theLinkedList.append(101, "Michael", 125.5f);
-		theLinkedList.prepend(102, "Sasah", 120.0f);
-		theLinkedList.append(103, "Braxton", 150);
-		theLinkedList.append(104, "Lee", 160);
-		theLinkedList.prepend(105, "Mokter", 165.5f);
+		theLinkedList.append(101, "Michael");
+		theLinkedList.prepend(102, "Sasah");
+		theLinkedList.append(103, "Braxton");
+		theLinkedList.append(104, "Lee");
+		theLinkedList.prepend(105, "Mokter");
 //  105 > 102 > 101 > 103  > 104 
 		theLinkedList.displayAllNodes();
 
