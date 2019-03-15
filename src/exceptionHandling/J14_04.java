@@ -11,8 +11,6 @@ public class J14_04{
 		try{
 			
 			d = z/(y - 2*x);  // Exception Makes Here (Division by zero)
-		
-		
 		}
 		
 		catch (Exception ex){
